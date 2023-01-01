@@ -1,14 +1,13 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import Menu from "components/Menu";
 import Spinner from "components/Spinner";
 import TopBar from "components/TopBar";
 
-const Tickets = lazy(() => import("pages/Tickets"));
+const Tickets = lazy(() => import("pages/Home"));
 
 function Layout() {
   return (
-    <TopBar menu={<Menu />}>
+    <TopBar>
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<Tickets />} />

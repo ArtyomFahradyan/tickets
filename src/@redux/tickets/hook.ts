@@ -11,8 +11,29 @@ export default function () {
   const dispatch: Dispatch = useDispatch();
 
   const setTickets = useCallback(
-    (payload: Ticket) => {
+    (payload: Ticket[]) => {
       dispatch({ type: types.SET_TICKETS, payload });
+    },
+    [dispatch]
+  );
+
+  const setRate = useCallback(
+    (payload: number) => {
+      dispatch({ type: types.SET_RATE, payload });
+    },
+    [dispatch]
+  );
+
+  const setCurrency = useCallback(
+    (payload: number) => {
+      dispatch({ type: types.SET_CURRENCY, payload });
+    },
+    [dispatch]
+  );
+
+  const setFilters = useCallback(
+    (payload: number[]) => {
+      dispatch({ type: types.SET_FILTERS, payload });
     },
     [dispatch]
   );
@@ -24,5 +45,8 @@ export default function () {
   return {
     setTickets,
     clearWorkspace,
+    setRate,
+    setCurrency,
+    setFilters,
   };
 }

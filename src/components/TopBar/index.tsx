@@ -1,17 +1,22 @@
 import React from "react";
-import { TopBarWrapper, MenuWrapper, Content } from "./styles";
+import { ContentWrapper, MenuWrapper, Content, Logo } from "./styles";
 
 type Props = {
-  menu?: React.ReactNode;
   children?: React.ReactNode;
 };
 
-function TopBar({ children, menu }: Props) {
+function TopBar({ children }: Props) {
+  const handleClickLogo = () => {
+    window.location.reload();
+  };
+
   return (
-    <TopBarWrapper>
-      <MenuWrapper>{menu}</MenuWrapper>
+    <ContentWrapper>
+      <MenuWrapper>
+        <Logo onClick={handleClickLogo} src="/assets/logo.png" />
+      </MenuWrapper>
       <Content>{children}</Content>
-    </TopBarWrapper>
+    </ContentWrapper>
   );
 }
 

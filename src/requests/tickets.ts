@@ -1,7 +1,8 @@
 import fetchWithRetry from "helpers/fetchWithRetry";
+import { Ticket } from "types";
 
-export async function getTickets() {
-  const res = await fetchWithRetry("http://127.0.0.1:3001/feed");
+export async function getTickets(): Promise<{ tickets: Ticket[] }> {
+  const res = await fetchWithRetry("tickets/tickets.json");
 
   return res.json();
 }
